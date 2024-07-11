@@ -1,0 +1,26 @@
+.mat-elevation-z8 {
+    padding: 20px;
+    margin: 20px;
+  }
+  
+  .page-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+  }
+  
+  .spacer {
+    flex: 1;
+  }
+  
+  .no-records-found {
+    text-align: center;
+    margin-top: 20px;
+    color: red;
+  }
+  

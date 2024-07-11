@@ -1,0 +1,50 @@
+<div class="mat-elevation-z8"> <!-- Add elevation for styling -->
+    <h1 class="page-title">Employee Management</h1>
+  
+    <div class="button-container">
+      <div class="spacer"></div>
+      <button mat-raised-button color="primary" routerLink="/employee/new">Add New Employee</button>
+    </div>
+  
+    <mat-table [dataSource]="employees" matSort>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+        <mat-cell *matCellDef="let employee">{{ employee.employee_name }}</mat-cell>
+      </ng-container>
+  
+      <!-- Salary Column -->
+      <ng-container matColumnDef="salary">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Salary</mat-header-cell>
+        <mat-cell *matCellDef="let employee">{{ employee.employee_salary }}</mat-cell>
+      </ng-container>
+  
+      <!-- Age Column -->
+      <ng-container matColumnDef="age">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Age</mat-header-cell>
+        <mat-cell *matCellDef="let employee">{{ employee.employee_age }}</mat-cell>
+      </ng-container>
+  
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+        <mat-cell *matCellDef="let employee">
+          <button mat-icon-button color="primary" (click)="editEmployee(employee.id)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteEmployee(employee.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  
+    <div *ngIf="!hasRecords" class="no-records-found mat-body-1">
+      No records found / Server issue
+    </div>
+  </div>
+  
